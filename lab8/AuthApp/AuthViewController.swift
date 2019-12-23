@@ -69,7 +69,7 @@ extension AuthViewController: AuthViewDelegate {
     }
     
     func backToLoginView() {
-        
+        UIView.transition(from: loginView, to: authView, duration: 0.7, options: [.showHideTransitionViews, .transitionFlipFromBottom], completion: nil)
 
 
         self.loginView.isHidden = false
