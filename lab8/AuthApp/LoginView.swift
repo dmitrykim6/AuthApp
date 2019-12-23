@@ -59,7 +59,6 @@ class LoginView: UIView {
     
     @discardableResult
     func validateInput() -> Bool {
-        
         let valid =
             self.validateUsername() && self.validatePassword()
         
@@ -69,7 +68,6 @@ class LoginView: UIView {
     }
     
     func validateUsername() -> Bool {
-        
         let valid =
             self.delegate?.loginView?(
                 self,
@@ -101,7 +99,6 @@ class LoginView: UIView {
     @IBAction func checkLoginData(_ sender: UIButton) {
         
         if self.validateInput() {
-            
             self.delegate?.loginView(
                 self,
                 didGetUsername: self.username,

@@ -13,6 +13,7 @@ class AuthViewController: UIViewController {
     @IBOutlet weak var loginView: UIView!
     @IBOutlet weak var authView: UIView!
     
+    var code2factor = "00001"
     let testUsername = "admin"
     let testPassword = "1234"
     
@@ -22,7 +23,7 @@ class AuthViewController: UIViewController {
             password == self.testPassword {
             
             self.loginView.isHidden = true
-            self.authView?.isHidden = false
+            self.authView.isHidden = false
         }
         
     }
@@ -50,4 +51,25 @@ extension AuthViewController: LoginViewDelegate {
     ) {
         self.loginUser(with: username, password: password)
     }
+}
+
+extension AuthViewController: AuthViewDelegate {
+    
+    func checkCode(_ code: String) {
+        if code == code2factor {
+            print(code)
+            print(code2factor)
+            
+            self.loginView.isHidden = true
+            self.authView.isHidden = true
+        }
+    }
+    
+    func backToLoginView() {
+        
+        self.loginView.isHidden = false
+        self.authView.isHidden = true
+    }
+    
+    
 }
