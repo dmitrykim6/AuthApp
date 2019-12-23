@@ -22,6 +22,8 @@ class AuthViewController: UIViewController {
         if username == self.testUsername &&
             password == self.testPassword {
             
+            UIView.transition(from: loginView, to: authView, duration: 0.7, options: [.showHideTransitionViews, .transitionFlipFromBottom], completion: nil)
+            
             self.loginView.isHidden = true
             self.authView.isHidden = false
         }
@@ -60,6 +62,7 @@ extension AuthViewController: AuthViewDelegate {
             print(code)
             print(code2factor)
             
+            
             self.loginView.isHidden = true
             self.authView.isHidden = true
         }
@@ -67,6 +70,8 @@ extension AuthViewController: AuthViewDelegate {
     
     func backToLoginView() {
         
+
+
         self.loginView.isHidden = false
         self.authView.isHidden = true
     }
